@@ -1,0 +1,1 @@
+start /B "g++ -o D:\Sseu\Tryingssiuh\Ssianxmuh\_230515_STGs\_230824_STG\_230824_STG.exe -g D:\Sseu\Tryingssiuh\Ssianxmuh\_230515_STGs\_230824_STG\_230824_STG.cpp -LD:\Sseu\Tryingssiuh\Ssianxmuh\_230515_STGs\_230824_STG\lib -lfreeglut -lglu32 -lopengl32 -lSDL2; D:\Sseu\Tryingssiuh\Ssianxmuh\_230515_STGs\_230824_STG\_230824_STG"
