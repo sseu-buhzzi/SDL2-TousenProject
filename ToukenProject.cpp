@@ -1134,23 +1134,6 @@ void GameActivity::tzuihczi_shoot_and_break() {
     }
 }
 
-char *get_source_dir(char *buffer) {
-    int size(::GetModuleFileNameA(nullptr, buffer, PATH_MAX));
-    if (size == 0U) {
-        return nullptr;
-    }
-    buffer += size;
-    while (*buffer != '\\') {
-        --buffer;
-    }
-    *++buffer = 's';
-    *++buffer = 'r';
-    *++buffer = 'c';
-    *++buffer = '\\';
-    *++buffer = '\x00';
-    return buffer;
-}
-
 int main() {
     // ::TimedEvent timed_event(0.0, nullptr);
     // ::std::cout << sizeof timed_event << '\n' << (char *)(&timed_event.lparam_map) - (char *)(&timed_event) << '\t' << sizeof timed_event.lparam_map << '\n' << (char *)(&timed_event.time) - (char *)(&timed_event) << '\t' << sizeof timed_event.time << '\n' << (char *)(&timed_event.event_func) - (char *)(&timed_event) << '\t' << sizeof timed_event.event_func << '\n';
@@ -1165,12 +1148,10 @@ int main() {
     ::std::cout << __TIMESTAMP__ << '\n';
     // return 0;
 
-    char path_buffer[PATH_MAX]{};
-    ::get_source_dir(path_buffer);
     ::Sseu::init("東綫ПРОЖЕКТ", 64, 64, 1024, 768);
     ::Sseu::FontSource::source_init();
-    ::TexSource::source_init(::std::string(path_buffer));
-    ::AudioSource::source_init(::std::string(path_buffer));
+    ::TexSource::source_init("src/");
+    ::AudioSource::source_init("src/");
     ::Sseu::push_activity<::LaunchActivity>();
     ::Sseu::mainloop();
     ::AudioSource::source_quit();
