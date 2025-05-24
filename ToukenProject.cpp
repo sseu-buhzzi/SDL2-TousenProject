@@ -1134,22 +1134,9 @@ void GameActivity::tzuihczi_shoot_and_break() {
     }
 }
 
-char *get_source_dir(char *buffer) {
-    int size(::GetModuleFileNameA(nullptr, buffer, PATH_MAX));
-    if (size == 0U) {
-        return nullptr;
-    }
-    buffer += size;
-    while (*buffer != '\\') {
-        --buffer;
-    }
-    *++buffer = 's';
-    *++buffer = 'r';
-    *++buffer = 'c';
-    *++buffer = '\\';
-    *++buffer = '\x00';
-    return buffer;
-}
+#ifndef PATH_MAX
+#define PATH_MAX 0x1000
+#endif
 
 int main() {
     // ::TimedEvent timed_event(0.0, nullptr);
@@ -1165,12 +1152,10 @@ int main() {
     ::std::cout << __TIMESTAMP__ << '\n';
     // return 0;
 
-    char path_buffer[PATH_MAX]{};
-    ::get_source_dir(path_buffer);
     ::Sseu::init("東綫ПРОЖЕКТ", 64, 64, 1024, 768);
     ::Sseu::FontSource::source_init();
-    ::TexSource::source_init(::std::string(path_buffer));
-    ::AudioSource::source_init(::std::string(path_buffer));
+    ::TexSource::source_init("src/");
+    ::AudioSource::source_init("src/");
     ::Sseu::push_activity<::LaunchActivity>();
     ::Sseu::mainloop();
     ::AudioSource::source_quit();
