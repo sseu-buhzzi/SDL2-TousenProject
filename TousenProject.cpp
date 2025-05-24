@@ -1,7 +1,7 @@
 // compile command:
 // cd D:\Sseu\Tryingssiuh\Ssianxmuh\_230515_STGs\_230824_STG
 // g++ -Ofast -o 東綫ПРОЖЕКТ.exe 東綫ПРОЖЕКТ.cpp -Llib -lfreeglut -lglu32 -lopengl32 -lSDL2; .\東綫ПРОЖЕКТ
-// g++ -Ofast -o ToukenProject.exe ToukenProject.cpp -Llib -lfreeglut -lglu32 -lopengl32 -lSDL2; .\ToukenProject
+// g++ -Ofast -o TousenProject.exe TousenProject.cpp -Llib -lfreeglut -lglu32 -lopengl32 -lSDL2; .\TousenProject
 
 #ifndef STG_CPP
 
